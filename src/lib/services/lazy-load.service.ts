@@ -1,13 +1,11 @@
-import { Injectable, Inject, Renderer2 } from "@angular/core";
-import { ReplaySubject, Observable } from "rxjs";
+import { Inject, Injectable } from "@angular/core";
+import { Observable, ReplaySubject } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
 export class LazyLoadService {
   _loadedLibraries: { [url: string]: ReplaySubject<any> } = {};
-
-  constructor(private renderer: Renderer2) {}
 
   loadScript(url: string): Observable<any> {
     if (!url) return;
@@ -18,7 +16,7 @@ export class LazyLoadService {
 
     this._loadedLibraries[url] = new ReplaySubject();
 
-    const script = this.renderer.createElement("script");
+    const script = document.createElement("script");
     script.type = "text/javascript";
     script.src = url;
     script.onload = () => {
@@ -26,7 +24,7 @@ export class LazyLoadService {
       this._loadedLibraries[url].complete();
     };
 
-    this.renderer.appendChild(document.body, script);
+    document.body.appendChild(script);
 
     return this._loadedLibraries[url].asObservable();
   }
@@ -40,7 +38,7 @@ export class LazyLoadService {
 
     this._loadedLibraries[url] = new ReplaySubject();
 
-    const link: HTMLLinkElement = this.renderer.createElement("link");
+    const link: HTMLLinkElement = document.createElement("link");
     link.type = "text/css";
     link.rel = "stylesheet";
     link.href = url;
@@ -49,7 +47,7 @@ export class LazyLoadService {
       this._loadedLibraries[url].complete();
     };
 
-    this.renderer.appendChild(document.body, link);
+    document.body.appendChild(link);
 
     return this._loadedLibraries[url].asObservable();
   }

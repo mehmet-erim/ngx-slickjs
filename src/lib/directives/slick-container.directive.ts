@@ -14,11 +14,11 @@ import { Slick, Options } from "../models";
 import { timer, forkJoin } from "rxjs";
 import { LazyLoadService } from "../services";
 
-declare const jQuery: any;
+declare const $: any;
 
 @Directive({
   selector: "[slickContainer]",
-  exportAs: "[slickContainer]"
+  exportAs: "[slick]"
 })
 export class SlickContainerDirective implements OnDestroy {
   @Input("slickConfig")
@@ -41,7 +41,7 @@ export class SlickContainerDirective implements OnDestroy {
 
   slides: HTMLElement[] = [];
 
-  $instance: any;
+  jQueryElement: any;
 
   private initialize: boolean = false;
 
@@ -79,24 +79,24 @@ export class SlickContainerDirective implements OnDestroy {
   initSlick() {
     const that = this;
     this.zone.runOutsideAngular(() => {
-      jQuery(this.elRef.nativeElement)[0].innerHTML = "";
-      this.$instance = jQuery(this.elRef.nativeElement);
-      this.$instance.on("init", (event, slick) => {
+      $(this.elRef.nativeElement)[0].innerHTML = "";
+      this.jQueryElement = $(this.elRef.nativeElement);
+      this.jQueryElement.on("init", (event, slick) => {
         this.zone.run(() => {
           timer(0).subscribe(() => this.init.emit({ event, slick }));
         });
       });
 
-      this.$instance.slick(this.config);
+      this.jQueryElement.slick(this.config);
       this.initialize = true;
 
-      this.$instance.on("afterChange", (event, slick, currentSlide) => {
+      this.jQueryElement.on("afterChange", (event, slick, currentSlide) => {
         that.zone.run(() => {
           that.afterChange.emit({ event, slick, currentSlide });
         });
       });
 
-      this.$instance.on(
+      this.jQueryElement.on(
         "beforeChange",
         (event, slick, currentSlide, nextSlide) => {
           that.zone.run(() => {
@@ -105,13 +105,13 @@ export class SlickContainerDirective implements OnDestroy {
         }
       );
 
-      this.$instance.on("breakpoint", (event, slick, breakpoint) => {
+      this.jQueryElement.on("breakpoint", (event, slick, breakpoint) => {
         that.zone.run(() => {
           that.breakpoint.emit({ event, slick, breakpoint });
         });
       });
 
-      this.$instance.on("destroy", (event, slick) => {
+      this.jQueryElement.on("destroy", (event, slick) => {
         that.zone.run(() => {
           that.destroy.emit({ event, slick });
         });
@@ -124,7 +124,7 @@ export class SlickContainerDirective implements OnDestroy {
   syncSlides() {
     this.slides.forEach(slide => {
       this.zone.run(() => {
-        this.$instance.slick("slickAdd", slide);
+        this.jQueryElement.slick("slickAdd", slide);
       });
     });
   }
@@ -135,7 +135,7 @@ export class SlickContainerDirective implements OnDestroy {
     if (!this.initialize) return;
 
     this.zone.run(() => {
-      this.$instance.slick("slickAdd", slide);
+      this.jQueryElement.slick("slickAdd", slide);
     });
   }
 
@@ -145,44 +145,44 @@ export class SlickContainerDirective implements OnDestroy {
     if (!this.initialize) return;
 
     this.zone.run(() => {
-      this.$instance.slick("slickRemove", this.slides.indexOf(slide));
+      this.jQueryElement.slick("slickRemove", this.slides.indexOf(slide));
     });
   }
 
   slickGoTo(index: number) {
     this.zone.run(() => {
-      this.$instance.slick("slickGoTo", index);
+      this.jQueryElement.slick("slickGoTo", index);
     });
   }
 
   slickNext() {
     this.zone.run(() => {
-      this.$instance.slick("slickNext");
+      this.jQueryElement.slick("slickNext");
     });
   }
 
   slickPrev() {
     this.zone.run(() => {
-      this.$instance.slick("slickPrev");
+      this.jQueryElement.slick("slickPrev");
     });
   }
 
   slickPause() {
     this.zone.run(() => {
-      this.$instance.slick("slickPause");
+      this.jQueryElement.slick("slickPause");
     });
   }
 
   slickPlay() {
     this.zone.run(() => {
-      this.$instance.slick("slickPlay");
+      this.jQueryElement.slick("slickPlay");
     });
   }
 
   unslick() {
-    if (this.$instance) {
+    if (this.jQueryElement) {
       this.zone.run(() => {
-        this.$instance.slick("unslick");
+        this.jQueryElement.slick("unslick");
       });
     }
     this.initialize = false;
