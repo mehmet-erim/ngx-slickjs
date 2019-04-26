@@ -14,6 +14,5 @@ cache:
   directories:
     - node_modules
 script:
-  - nyc --reporter=lcov yarn ci-test
   - yarn build
   - yarn codecov -t $CODECOV_TOKEN
