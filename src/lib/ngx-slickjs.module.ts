@@ -1,7 +1,6 @@
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { SlickContainerDirective, SlickItemDirective } from "./directives";
 import { Options } from "./models";
-import { link } from "fs";
 
 @NgModule({
   declarations: [SlickContainerDirective, SlickItemDirective],
