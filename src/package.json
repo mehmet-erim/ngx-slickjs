@@ -1,6 +1,9 @@
 {
   "name": "ngx-slickjs",
   "version": "0.0.1",
+  "dependencies": {
+    "just-compare": "^1.3.0"
+  },
   "peerDependencies": {
     "@angular/common": ">=6.0.0 <8.0.0",
     "@angular/core": ">=6.0.0 <8.0.0",
