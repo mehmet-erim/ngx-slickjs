@@ -8,7 +8,7 @@ import {
   Output,
   Inject
 } from "@angular/core";
-import { compare } from "../utils";
+import { compare } from "just-compare";
 import { take, map, filter, switchMap } from "rxjs/operators";
 import { Slick, Options } from "../models";
 import { timer, forkJoin } from "rxjs";
