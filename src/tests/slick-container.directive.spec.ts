@@ -105,7 +105,6 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
 
     it("should emitted after changed", async(done => {
       this.slickContainer.afterChange.subscribe(res => {
-        console.log("geldi", res);
         expect(res).toBeTruthy();
         done();
       });
