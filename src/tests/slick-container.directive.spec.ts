@@ -1,15 +1,9 @@
-import {
-  async,
-  ComponentFixture,
-  TestBed,
-  fakeAsync,
-  tick
-} from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
 import { SlickContainerDirective } from "src/lib/directives";
+import { LazyLoadService } from "src/lib/services";
 import testConfig from "./test-config";
 import { TestComponent } from "./test.component";
-import { LazyLoadService } from "src/lib/services";
 
 export interface USlickContainerDirective {
   slickContainer: SlickContainerDirective;
@@ -78,11 +72,10 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
 
     it("should be slick css loaded", async(done => {
       this.slickContainer.init.subscribe(() => {
-        console.log(Object.keys(this.lazyLoadService._loadedLibraries));
         expect(
           Object.keys(this.lazyLoadService._loadedLibraries).find(
             key =>
-              key ===
+              String(key) ===
               "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
           )
         ).toBeTruthy();
@@ -95,7 +88,7 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
         expect(
           Object.keys(this.lazyLoadService._loadedLibraries).find(
             key =>
-              key ===
+              String(key) ===
               "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
           )
         ).toBeTruthy();
