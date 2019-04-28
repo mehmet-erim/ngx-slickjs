@@ -20,7 +20,7 @@ export interface USlickContainerDirective {
 
 describe("SlickContainerDirective", function(this: USlickContainerDirective) {
   describe("as a unit", () => {
-    beforeEach(async(() => {
+    beforeEach(() => {
       TestBed.overrideComponent(TestComponent, {
         set: {
           template: `
@@ -46,7 +46,7 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       );
 
       this.fixture.detectChanges();
-    }));
+    });
 
     it("should be created", () => {
       expect(this.slickContainer).not.toBeUndefined();
@@ -54,12 +54,60 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
 
     it("should be jquery loaded", async(done => {
       this.slickContainer.init.subscribe(() => {
-        done();
         expect(
           Object.keys(this.lazyLoadService._loadedLibraries).find(
             key => key === "https://code.jquery.com/jquery-3.4.0.min.js"
           )
         ).toBeTruthy();
+        done();
+      });
+    }));
+
+    it("should be slickJs loaded", async(done => {
+      this.slickContainer.init.subscribe(() => {
+        expect(
+          Object.keys(this.lazyLoadService._loadedLibraries).find(
+            key =>
+              key ===
+              "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+          )
+        ).toBeTruthy();
+        done();
+      });
+    }));
+
+    it("should be slick css loaded", async(done => {
+      this.slickContainer.init.subscribe(() => {
+        console.log(Object.keys(this.lazyLoadService._loadedLibraries));
+        expect(
+          Object.keys(this.lazyLoadService._loadedLibraries).find(
+            key =>
+              key ===
+              "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+          )
+        ).toBeTruthy();
+        done();
+      });
+    }));
+
+    it("should be slick theme css loaded", async(done => {
+      this.slickContainer.init.subscribe(() => {
+        expect(
+          Object.keys(this.lazyLoadService._loadedLibraries).find(
+            key =>
+              key ===
+              "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+          )
+        ).toBeTruthy();
+        done();
+      });
+    }));
+
+    it("should emitted after changed", async(done => {
+      this.slickContainer.afterChange.subscribe(res => {
+        console.log("geldi", res);
+        expect(res).toBeTruthy();
+        done();
       });
     }));
   });

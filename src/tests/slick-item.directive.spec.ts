@@ -46,21 +46,21 @@ describe("SlickItemDirective", function(this: USlickItemDirective) {
       this.fixture.detectChanges();
     }));
 
-    xit("should be container created", () => {
+    it("should be container created", () => {
       expect(this.slickContainer).not.toBeUndefined();
     });
 
-    xit("should be item created", () => {
+    it("should be item created", () => {
       expect(this.slickItem).not.toBeUndefined();
     });
 
-    xit("should equal container slides length to slickItem count", () => {
+    it("should equal container slides length to slickItem count", () => {
       expect(this.slickContainer.slides.length).toBe(
         this.component.names.length
       );
     });
 
-    xit("should be equal itemsLength to names length", () => {
+    it("should be equal itemsLength to names length", () => {
       expect(this.itemsLength).toBe(this.component.names.length);
     });
   });
