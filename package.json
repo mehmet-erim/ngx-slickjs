@@ -8,7 +8,7 @@
     "lint": "ng lint",
     "test": "ng test",
     "ci-test": "ng test --code-coverage --watch=false",
-    "release": "cp README.md dist/ngx-context/README.md && cd dist/ngx-context && npm publish && cd ../..",
+    "release": "cp README.md dist/ngx-slickjs/README.md && cd dist/ngx-slickjs && npm publish && cd ../..",
     "verdaccio": "yarn build && cd dist/ngx-slickjs && npm publish --registry http://localhost:4873 && cd ../..",
     "unverdaccio": "cd dist/ngx-slickjs && npm unpublish --registry http://localhost:4873 --force && cd ../.."
   },
