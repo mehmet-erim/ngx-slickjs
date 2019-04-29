@@ -121,17 +121,22 @@ export class AppModule {}
 
 ### LazyLoadService Usage
 
-````typescript
+```typescript
+import {LazyLoadService} from 'ngx-slickjs';
+
+constructor(private lazyLoadService: LazyLoadService) {}
+
+  ngAfterViewInit(){
     this.lazyLoadService
       .loadScript(/* your script url */)
       .subscribe(() => {
         // loaded your script
       });
 
-      this.lazyLoadService
+    this.lazyLoadService
       .loadCss(/* your style url */)
       .subscribe(() => {
         // loaded your style
       });
+  }
 ```
-````
