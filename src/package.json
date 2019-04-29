@@ -1,6 +1,6 @@
 {
   "name": "ngx-slickjs",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "dependencies": {
     "just-compare": "^1.3.0"
   },

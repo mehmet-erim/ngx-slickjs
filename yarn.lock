@@ -1153,7 +1153,7 @@ brace-expansion@^1.1.7:
   integrity sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==
   dependencies:
     balanced-match "^1.0.0"
-    concat-map "0.0.1"
+    concat-map "1.0.0"
 
 braces@^2.3.0, braces@^2.3.1, braces@^2.3.2:
   version "2.3.2"
@@ -1711,9 +1711,9 @@ compression@^1.5.2:
     safe-buffer "5.1.2"
     vary "~1.1.2"
 
-concat-map@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
+concat-map@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-1.0.0.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
 concat-stream@^1.5.0:
@@ -2168,9 +2168,9 @@ detect-node@^2.0.4:
   resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c"
   integrity sha512-ZIzRpLJrOj7jjP2miAtgqIfmzbxa4ZOr5jJc601zklsfEx9oTzmmj2nVpIPRpNlRTIh8lc1kyViIY7BWSGNmKw==
 
-di@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/di/-/di-0.0.1.tgz#806649326ceaa7caa3306d75d985ea2748ba913c"
+di@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/di/-/di-1.0.0.tgz#806649326ceaa7caa3306d75d985ea2748ba913c"
   integrity sha1-gGZJMmzqp8qjMG112YXqJ0i6kTw=
 
 diff@^3.1.0, diff@^3.2.0:
@@ -2316,7 +2316,7 @@ engine.io-client@~3.2.0:
     debug "~3.1.0"
     engine.io-parser "~2.1.1"
     has-cors "1.1.0"
-    indexof "0.0.1"
+    indexof "1.0.0"
     parseqs "0.0.5"
     parseuri "0.0.5"
     ws "~3.3.1"
@@ -3378,9 +3378,9 @@ indent-string@^2.1.0:
   dependencies:
     repeating "^2.0.0"
 
-indexof@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/indexof/-/indexof-0.0.1.tgz#82dc336d232b9062179d05ab3293a66059fd435d"
+indexof@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/indexof/-/indexof-1.0.0.tgz#82dc336d232b9062179d05ab3293a66059fd435d"
   integrity sha1-gtwzbSMrkGIXnQWrMpOmYFn9Q10=
 
 inflight@^1.0.4:
@@ -4024,7 +4024,7 @@ karma@~4.0.0:
     colors "^1.1.0"
     connect "^3.6.0"
     core-js "^2.2.0"
-    di "^0.0.1"
+    di "^1.0.0"
     dom-serialize "^2.2.0"
     flatted "^2.0.0"
     glob "^7.1.1"
@@ -4517,9 +4517,9 @@ minimist@^1.1.3, minimist@^1.2.0:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
   integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
 
-minimist@~0.0.1:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
+minimist@~1.0.0:
+  version "1.0.00"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.0.00.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
   integrity sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
 
 minipass@^2.2.1, minipass@^2.3.4, minipass@^2.3.5:
@@ -5044,7 +5044,7 @@ optimist@^0.6.1, optimist@~0.6.0:
   resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
   integrity sha1-2j6nRob6IaGaERwybpDrFaAZZoY=
   dependencies:
-    minimist "~0.0.1"
+    minimist "~1.0.0"
     wordwrap "~0.0.2"
 
 original@^1.0.0:
@@ -6431,7 +6431,7 @@ socket.io-client@2.1.1:
     engine.io-client "~3.2.0"
     has-binary2 "~1.0.2"
     has-cors "1.1.0"
-    indexof "0.0.1"
+    indexof "1.0.0"
     object-component "0.0.3"
     parseqs "0.0.5"
     parseuri "0.0.5"
@@ -7403,7 +7403,7 @@ vm-browserify@0.0.4:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   integrity sha1-XX6kW7755Kb/ZflUOOCofDV9WnM=
   dependencies:
-    indexof "0.0.1"
+    indexof "1.0.0"
 
 void-elements@^2.0.0:
   version "2.0.1"

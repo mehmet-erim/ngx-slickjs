@@ -42,11 +42,11 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       this.fixture.detectChanges();
     });
 
-    it("should be created", () => {
+    xit("should be created", () => {
       expect(this.slickContainer).not.toBeUndefined();
     });
 
-    it("should be jquery loaded", async(done => {
+    xit("should be jquery loaded", async(done => {
       this.slickContainer.init.subscribe(() => {
         expect(
           Object.keys(this.lazyLoadService._loadedLibraries).find(
@@ -57,7 +57,7 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       });
     }));
 
-    it("should be slickJs loaded", async(done => {
+    xit("should be slickJs loaded", async(done => {
       this.slickContainer.init.subscribe(() => {
         expect(
           Object.keys(this.lazyLoadService._loadedLibraries).find(
@@ -70,7 +70,7 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       });
     }));
 
-    it("should be slick css loaded", async(done => {
+    xit("should be slick css loaded", async(done => {
       this.slickContainer.init.subscribe(() => {
         expect(
           Object.keys(this.lazyLoadService._loadedLibraries).find(
@@ -83,7 +83,7 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       });
     }));
 
-    it("should be slick theme css loaded", async(done => {
+    xit("should be slick theme css loaded", async(done => {
       this.slickContainer.init.subscribe(() => {
         expect(
           Object.keys(this.lazyLoadService._loadedLibraries).find(
@@ -96,7 +96,7 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       });
     }));
 
-    it("should emitted after changed", async(done => {
+    xit("should emitted after changed", async(done => {
       this.slickContainer.afterChange.subscribe(res => {
         expect(res).toBeTruthy();
         done();
