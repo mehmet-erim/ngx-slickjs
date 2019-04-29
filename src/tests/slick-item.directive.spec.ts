@@ -17,7 +17,7 @@ export interface USlickItemDirective {
 
 describe("SlickItemDirective", function(this: USlickItemDirective) {
   describe("as a integration", () => {
-    beforeEach(async(() => {
+    beforeEach(() => {
       TestBed.overrideComponent(TestComponent, {
         set: {
           template: `
@@ -44,7 +44,7 @@ describe("SlickItemDirective", function(this: USlickItemDirective) {
         .query(By.directive(SlickContainerDirective))
         .injector.get(SlickContainerDirective);
       this.fixture.detectChanges();
-    }));
+    });
 
     it("should be container created", () => {
       expect(this.slickContainer).not.toBeUndefined();
