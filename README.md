@@ -116,3 +116,22 @@ import { NgxSlickJsModule } from "ngx-slickjs";
 })
 export class AppModule {}
 ```
+
+## Bonus
+
+### LazyLoadService Usage
+
+````typescript
+    this.lazyLoadService
+      .loadScript(/* your script url */)
+      .subscribe(() => {
+        // loaded your script
+      });
+
+      this.lazyLoadService
+      .loadCss(/* your style url */)
+      .subscribe(() => {
+        // loaded your style
+      });
+```
+````
