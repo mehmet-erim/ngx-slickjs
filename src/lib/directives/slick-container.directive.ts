@@ -8,7 +8,7 @@ import {
   Output,
   Inject
 } from "@angular/core";
-import { compare } from "just-compare";
+import compare from "just-compare";
 import { take, map, filter, switchMap } from "rxjs/operators";
 import { Slick, Options } from "../models";
 import { timer, forkJoin } from "rxjs";
@@ -18,7 +18,7 @@ declare const $: any;
 
 @Directive({
   selector: "[slickContainer]",
-  exportAs: "[slick]"
+  exportAs: "slick"
 })
 export class SlickContainerDirective implements OnDestroy {
   @Input("slickConfig")
@@ -149,31 +149,31 @@ export class SlickContainerDirective implements OnDestroy {
     });
   }
 
-  slickGoTo(index: number) {
+  goTo(index: number) {
     this.zone.run(() => {
       this.jQueryElement.slick("slickGoTo", index);
     });
   }
 
-  slickNext() {
+  next() {
     this.zone.run(() => {
       this.jQueryElement.slick("slickNext");
     });
   }
 
-  slickPrev() {
+  prev() {
     this.zone.run(() => {
       this.jQueryElement.slick("slickPrev");
     });
   }
 
-  slickPause() {
+  pause() {
     this.zone.run(() => {
       this.jQueryElement.slick("slickPause");
     });
   }
 
-  slickPlay() {
+  play() {
     this.zone.run(() => {
       this.jQueryElement.slick("slickPlay");
     });
