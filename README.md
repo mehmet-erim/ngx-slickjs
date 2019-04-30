@@ -1,6 +1,6 @@
 # ngx-slickjs
 
-[![Minzipped Size](https://badgen.net/bundlephobia/minzip/ngx-slickjs)](https://bundlephobia.com/result?p=ngx-slickjs@1.0.2)
+[![Minzipped Size](https://badgen.net/bundlephobia/minzip/ngx-slickjs)](https://bundlephobia.com/result?p=ngx-slickjs@1.0.3)
 [![Maintainability](https://api.codeclimate.com/v1/badges/822ebfba446c893a385a/maintainability)](https://codeclimate.com/github/mehmet-erim/ngx-slickjs/maintainability)
 [![Build Status](https://travis-ci.org/mehmet-erim/ngx-slickjs.svg?branch=master)](https://travis-ci.org/mehmet-erim/ngx-slickjs)
 ![GitHub](https://img.shields.io/github/license/mehmet-erim/ngx-slickjs.svg)
@@ -34,8 +34,8 @@ import { NgxSlickJsModule } from "ngx-slickjs";
 @NgModule({
   imports: [
     // ...
-    NgxSlickJsModule.forRoot()
-  ]
+    NgxSlickJsModule.forRoot(),
+  ],
 })
 export class AppModule {}
 ```
@@ -57,8 +57,8 @@ import { NgxSlickJsModule } from "ngx-slickjs";
 @NgModule({
   imports: [
     // ...
-    NgxSlickJsModule
-  ]
+    NgxSlickJsModule,
+  ],
 })
 export class AnotherModule {}
 ```
@@ -67,11 +67,7 @@ You can use slick methods. SlickContainerDirective exported with `slick` key.
 
 ```html
 <div slickContainer #slickController="slick">
-  <img
-    slickItem
-    *ngFor="let item of [0,1,2,3,4,5];"
-    src="https://placeholder.pics/svg/400"
-  />
+  <img slickItem *ngFor="let item of [0,1,2,3,4,5];" src="https://placeholder.pics/svg/400" />
 </div>
 
 <button (click)="slickController.next()">Next</button>
@@ -105,14 +101,12 @@ import { NgxSlickJsModule } from "ngx-slickjs";
     NgxSlickJsModule.forRoot({
       links: {
         jquery: "https://code.jquery.com/jquery-3.4.0.min.js",
-        slickJs:
-          "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
-        slickCss:
-          "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
-        slickTheme: null // if you are set null, This package won't load
-      }
-    })
-  ]
+        slickJs: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
+        slickCss: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
+        slickTheme: null, // if you are set null, This package won't load
+      },
+    }),
+  ],
 })
 export class AppModule {}
 ```

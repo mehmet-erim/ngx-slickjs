@@ -1,6 +1,16 @@
 {
   "name": "ngx-slickjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mehmet-erim/ngx-slickjs.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/mehmet-erim/ngx-slickjs#readme",
+  "bugs": {
+    "url": "https://github.com/mehmet-erim/ngx-slickjs/issues"
+  },
+  "description": "ngx-slickjs is slick-carousel package for Angular 6+. ngx-slickjs can lazy load slick.js packages",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -52,5 +62,15 @@
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
-  }
+  },
+  "keywords": [
+    "angular",
+    "ngx-slickjs",
+    "ngx",
+    "slick",
+    "slickjs",
+    "slick-carousel",
+    "carousel",
+    "lazy-loading"
+  ]
 }
