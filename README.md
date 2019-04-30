@@ -10,7 +10,7 @@
 
 ngx-slickjs is slick-carousel package for Angular 6+. ngx-slickjs can lazy load slick.js packages. ngx-slickjs very small and very stable.
 
-[Stackblitz Example](https://twitter.com/mehmterim)
+[Stackblitz Example](https://stackblitz.com/edit/ngx-slickjs)
 
 ## Installation
 
