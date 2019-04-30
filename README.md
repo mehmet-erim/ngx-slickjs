@@ -113,9 +113,9 @@ export class AppModule {}
 ## Input and outputs:
 
 Inputs:
-| Name | Default
-| ---------- | --------
-| slickConfig | undefined
+| Name | Default |
+| ---------- | -------- |
+| slickConfig | undefined |
 
 Outputs:
 Event | Params | Description
