@@ -103,7 +103,7 @@ import { NgxSlickJsModule } from "ngx-slickjs";
         jquery: "https://code.jquery.com/jquery-3.4.0.min.js",
         slickJs: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
         slickCss: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
-        slickTheme: null, // if you are set null, This package won't load
+        slickTheme: null, // if you are set null, this package won't load
       },
     }),
   ],
