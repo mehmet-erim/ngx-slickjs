@@ -41,9 +41,9 @@ export class AppModule {}
 ```
 
 ```html
-<div slickContainer class="your-slide-container">
-  <img slickItem class="your-slide" src="https://placeholder.pics/svg/400" />
-  <img slickItem class="your-slide-2" src="https://placeholder.pics/svg/400" />
+<div slickContainer id="your-slide-container">
+  <img slickItem id="your-slide" src="https://placeholder.pics/svg/400" />
+  <img slickItem id="your-slide-2" src="https://placeholder.pics/svg/400" />
 </div>
 ```
 
