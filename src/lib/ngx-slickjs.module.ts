@@ -4,7 +4,7 @@ import { Options } from "./models";
 
 @NgModule({
   declarations: [SlickContainerDirective, SlickItemDirective],
-  exports: [SlickContainerDirective, SlickItemDirective]
+  exports: [SlickContainerDirective, SlickItemDirective],
 })
 export class NgxSlickJsModule {
   static forRoot({ links = {} } = {} as Options.Root): ModuleWithProviders {
@@ -14,10 +14,7 @@ export class NgxSlickJsModule {
         {
           provide: "SLICK_LINKS",
           useValue: {
-            jquery:
-              typeof links.jquery === "undefined"
-                ? "https://code.jquery.com/jquery-3.4.0.min.js"
-                : links.jquery,
+            jquery: typeof links.jquery === "undefined" ? "https://code.jquery.com/jquery-3.4.0.min.js" : links.jquery,
             slickJs:
               typeof links.slickJs === "undefined"
                 ? "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
@@ -26,13 +23,13 @@ export class NgxSlickJsModule {
               typeof links.slickCss === "undefined"
                 ? "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
                 : links.slickCss,
-            slickTheme:
-              typeof links.slickTheme === "undefined"
+            slickThemeCss:
+              typeof links.slickThemeCss === "undefined"
                 ? "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
-                : links.slickTheme
-          }
-        }
-      ]
+                : links.slickThemeCss,
+          },
+        },
+      ],
     };
   }
 }

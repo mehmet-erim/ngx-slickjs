@@ -7,6 +7,6 @@ export namespace Options {
     jquery?: string;
     slickJs?: string;
     slickCss?: string;
-    slickTheme?: string;
+    slickThemeCss?: string;
   }
 }
