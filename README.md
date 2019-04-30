@@ -120,6 +120,7 @@ Inputs:
 | slickConfig | undefined |
 
 Outputs:
+
 Event | Params | Description |
 ------ | -------- | ----------- |
 slickAfterChange | event, slick, currentSlide | After slide change callback |
