@@ -1,6 +1,6 @@
 # ngx-slickjs
 
-[![Minzipped Size](https://badgen.net/bundlephobia/minzip/ngx-slickjs)](https://bundlephobia.com/result?p=ngx-slickjs@1.1.0)
+[![Minzipped Size](https://badgen.net/bundlephobia/minzip/ngx-slickjs)](https://bundlephobia.com/result?p=ngx-slickjs@1.1.1)
 [![Maintainability](https://api.codeclimate.com/v1/badges/822ebfba446c893a385a/maintainability)](https://codeclimate.com/github/mehmet-erim/ngx-slickjs/maintainability)
 [![Build Status](https://travis-ci.org/mehmet-erim/ngx-slickjs.svg?branch=master)](https://travis-ci.org/mehmet-erim/ngx-slickjs)
 ![GitHub](https://img.shields.io/github/license/mehmet-erim/ngx-slickjs.svg)
@@ -81,12 +81,12 @@ export class AnotherModule {}
 
 forRoot Options:
 
-Property | Default |
------- | -------- |
-jquery | https://code.jquery.com/jquery-3.4.0.min.js |
-slickJs | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js |
-slickCss | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css |
-slickThemeCss | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css |
+| Property      | Default                                                                 |
+| ------------- | ----------------------------------------------------------------------- |
+| jquery        | https://code.jquery.com/jquery-3.4.0.min.js                             |
+| slickJs       | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js    |
+| slickCss      | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css       |
+| slickThemeCss | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css |
 
 Note: The above urls are download lazy. The urls don't increase initial opening time.
 
@@ -115,19 +115,19 @@ export class AppModule {}
 
 Inputs:
 
-| Name | Default |
-| ---------- | -------- |
+| Name        | Default   |
+| ----------- | --------- |
 | slickConfig | undefined |
 
 Outputs:
 
-Event | Params | Description |
------- | -------- | ----------- |
-slickAfterChange | event, slick, currentSlide | After slide change callback |
-slickBeforeChange | event, slick, currentSlide, nextSlide | Before slide change callback |
-slickBreakpoint | event, slick, breakpoint | Fires after a breakpoint is hit |
-slickDestroy | event, slick | When slider is destroyed, or unslicked. |
-slickInit | event, slick | When Slick initializes for the first time callback. Note that this event should be defined before initializing the slider. |
+| Event             | Params                                | Description                                                                                                                |
+| ----------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| slickAfterChange  | event, slick, currentSlide            | After slide change callback                                                                                                |
+| slickBeforeChange | event, slick, currentSlide, nextSlide | Before slide change callback                                                                                               |
+| slickBreakpoint   | event, slick, breakpoint              | Fires after a breakpoint is hit                                                                                            |
+| slickDestroy      | event, slick                          | When slider is destroyed, or unslicked.                                                                                    |
+| slickInit         | event, slick                          | When Slick initializes for the first time callback. Note that this event should be defined before initializing the slider. |
 
 You can import Slick config type:
 

@@ -1,9 +1,10 @@
 import { Directive, ElementRef, EventEmitter, Input, NgZone, OnDestroy, Output, Inject } from "@angular/core";
 import compare from "just-compare";
 import { take, map, filter, switchMap } from "rxjs/operators";
-import { Slick, Options } from "../models";
+import { Options } from "../models/options";
+import { Slick } from "../models/slick";
 import { timer, forkJoin } from "rxjs";
-import { LazyLoadService } from "../services";
+import { LazyLoadService } from "../services/lazy-load.service";
 
 declare const $: any;
 
@@ -40,7 +41,7 @@ export class SlickContainerDirective implements OnDestroy {
     private elRef: ElementRef,
     private zone: NgZone,
     private lazyLoadService: LazyLoadService,
-    @Inject("SLICK_LINKS") private links: Options.Links,
+    @Inject("slick-links") private links: Options.Links,
   ) {}
 
   ngAfterViewInit() {
