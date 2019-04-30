@@ -114,18 +114,19 @@ export class AppModule {}
 ## Input and outputs:
 
 Inputs:
+
 | Name | Default |
 | ---------- | -------- |
 | slickConfig | undefined |
 
 Outputs:
-Event | Params | Description
------- | -------- | -----------
-slickAfterChange | event, slick, currentSlide | After slide change callback
-slickBeforeChange | event, slick, currentSlide, nextSlide | Before slide change callback
-slickBreakpoint | event, slick, breakpoint | Fires after a breakpoint is hit
-slickDestroy | event, slick | When slider is destroyed, or unslicked.
-slickInit | event, slick | When Slick initializes for the first time callback. Note that this event should be defined before initializing the slider.
+Event | Params | Description |
+------ | -------- | ----------- |
+slickAfterChange | event, slick, currentSlide | After slide change callback |
+slickBeforeChange | event, slick, currentSlide, nextSlide | Before slide change callback |
+slickBreakpoint | event, slick, breakpoint | Fires after a breakpoint is hit |
+slickDestroy | event, slick | When slider is destroyed, or unslicked. |
+slickInit | event, slick | When Slick initializes for the first time callback. Note that this event should be defined before initializing the slider. |
 
 You can import Slick config type:
 
