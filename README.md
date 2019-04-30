@@ -80,6 +80,7 @@ export class AnotherModule {}
 ### Scripts and styles urls
 
 forRoot Options:
+
 Property | Default
 ------ | --------
 jquery | https://code.jquery.com/jquery-3.4.0.min.js
