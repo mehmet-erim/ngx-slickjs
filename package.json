@@ -1,6 +1,7 @@
 {
   "name": "ngx-slickjs",
   "version": "1.2.0",
+  "author": "Mehmet Erim <mehmet@mehmeterim.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mehmet-erim/ngx-slickjs.git"
