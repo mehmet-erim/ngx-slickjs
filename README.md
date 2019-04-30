@@ -80,8 +80,7 @@ export class AnotherModule {}
 ### Scripts and styles urls
 
 forRoot Options:
-Outputs:
-Script (style) | Default
+Property | Default
 ------ | --------
 jquery | https://code.jquery.com/jquery-3.4.0.min.js
 slickJs | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js
