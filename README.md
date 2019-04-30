@@ -80,12 +80,13 @@ export class AnotherModule {}
 ### Scripts and styles urls
 
 forRoot Options:
-| Script - Style | Default |
-| ---------------- | :---------------------------------------------------------------------: |
-| jquery | https://code.jquery.com/jquery-3.4.0.min.js |
-| slickJs | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js |
-| slickCss | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css |
-| slickThemeCss | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css |
+Outputs:
+Script (style) | Default
+------ | --------
+jquery | https://code.jquery.com/jquery-3.4.0.min.js
+slickJs | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js
+slickCss | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css
+slickThemeCss | https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css
 
 Note: The above urls are download lazy. The urls don't increase initial opening time.
 
