@@ -113,8 +113,8 @@ export class AppModule {}
 ## Input and outputs:
 
 Inputs:
-| Name | Default |
-| ---------- | -------- |
+| Name | Default
+| ---------- | --------
 | slickConfig | undefined
 
 Outputs:
