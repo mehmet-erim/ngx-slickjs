@@ -5,50 +5,37 @@ import { Observable, ReplaySubject } from "rxjs";
   providedIn: "root"
 })
 export class LazyLoadService {
-  _loadedLibraries: { [url: string]: ReplaySubject<any> } = {};
+  _loadedLibraries: { [url: string]: ReplaySubject<void> } = {};
 
-  loadScript(url: string): Observable<any> {
+  load(url: string, type: "script" | "style"): Observable<void> {
     if (!url) return;
+    const key = url.slice(url.lastIndexOf("/") + 1);
 
-    if (this._loadedLibraries[url]) {
-      return this._loadedLibraries[url].asObservable();
+    if (this._loadedLibraries[key]) {
+      return this._loadedLibraries[key].asObservable();
     }
 
-    this._loadedLibraries[url] = new ReplaySubject();
+    this._loadedLibraries[key] = new ReplaySubject();
 
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = url;
-    script.onload = () => {
-      this._loadedLibraries[url].next();
-      this._loadedLibraries[url].complete();
-    };
-
-    document.body.appendChild(script);
-
-    return this._loadedLibraries[url].asObservable();
-  }
-
-  loadCss(url: string): Observable<any> {
-    if (!url) return;
-
-    if (this._loadedLibraries[url]) {
-      return this._loadedLibraries[url].asObservable();
+    const library = document.createElement(
+      type === "script" ? "script" : "link"
+    );
+    if (type === "script") {
+      library.type = "text/javascript";
+      (library as HTMLScriptElement).src = url;
+    } else {
+      library.type = "text/css";
+      (library as HTMLLinkElement).rel = "stylesheet";
+      (library as HTMLLinkElement).href = url;
     }
 
-    this._loadedLibraries[url] = new ReplaySubject();
-
-    const link: HTMLLinkElement = document.createElement("link");
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    link.href = url;
-    link.onload = () => {
-      this._loadedLibraries[url].next();
-      this._loadedLibraries[url].complete();
+    library.onload = () => {
+      this._loadedLibraries[key].next();
+      this._loadedLibraries[key].complete();
     };
 
-    document.body.appendChild(link);
+    document.body.appendChild(library);
 
-    return this._loadedLibraries[url].asObservable();
+    return this._loadedLibraries[key].asObservable();
   }
 }

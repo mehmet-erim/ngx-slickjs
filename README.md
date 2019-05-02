@@ -249,15 +249,15 @@ constructor(private lazyLoadService: LazyLoadService) {}
 
   ngAfterViewInit(){
     this.lazyLoadService
-      .loadScript(/* your script url */)
+      .load(yourScriptUrl, 'script')
       .subscribe(() => {
         // loaded your script
       });
 
     this.lazyLoadService
-      .loadCss(/* your style url */)
+      .load(yourCssUrl, 'style')
       .subscribe(() => {
-        // loaded your style
+        // loaded your css
       });
   }
 ```
