@@ -108,6 +108,10 @@ export class SlickContainerDirective implements OnDestroy {
     });
 
     this.syncSlides();
+
+    if (this.config && this.config.initialSlide && this.config.initialSlide <= this.slides.length) {
+      this.goTo(this.config.initialSlide);
+    }
   }
 
   syncSlides() {
