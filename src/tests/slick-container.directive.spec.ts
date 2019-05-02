@@ -94,24 +94,15 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
     }));
 
     it("should emitted beforeChange when change slide", fakeAsync(() => {
-      this.slickContainer.init.subscribe(() => {
-        this.slickContainer.beforeChange.subscribe(res => {
-          console.log(res);
-          expect(res.currentSlide).toBe(1);
-        });
-        tick();
-        this.slickContainer.goTo(2);
+      this.slickContainer.beforeChange.subscribe(res => {
+        expect(res.currentSlide).toBe(0);
       });
       tick();
     }));
 
     it("should emitted afterChange when change slide", fakeAsync(() => {
-      this.slickContainer.init.subscribe(() => {
-        this.slickContainer.afterChange.subscribe(res => {
-          expect(res.currentSlide).toBe(2);
-        });
-        tick();
-        this.slickContainer.goTo(2);
+      this.slickContainer.afterChange.subscribe(res => {
+        expect(res.currentSlide).toBe(0);
       });
       tick();
     }));
