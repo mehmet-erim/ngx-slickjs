@@ -1,8 +1,7 @@
 import {
-  async,
   ComponentFixture,
-  TestBed,
   fakeAsync,
+  TestBed,
   tick
 } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
@@ -41,18 +40,18 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       expect(this.slickContainer).not.toBeUndefined();
     });
 
-    it("should be jquery loaded", async(done => {
+    it("should be jquery loaded", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
         expect(
           Object.keys(this.lazyLoadService._loadedLibraries).find(
             key => key === "https://code.jquery.com/jquery-3.4.0.min.js"
           )
         ).toBeTruthy();
-        done();
       });
+      tick();
     }));
 
-    it("should be slickJs loaded", async(done => {
+    it("should be slickJs loaded", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
         expect(
           Object.keys(this.lazyLoadService._loadedLibraries).find(
@@ -61,11 +60,11 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
               "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
           )
         ).toBeTruthy();
-        done();
       });
+      tick();
     }));
 
-    it("should be slick css loaded", async(done => {
+    it("should be slick css loaded", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
         expect(
           Object.keys(this.lazyLoadService._loadedLibraries).find(
@@ -74,11 +73,11 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
               "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
           )
         ).toBeTruthy();
-        done();
       });
+      tick();
     }));
 
-    it("should be slick theme css loaded", async(done => {
+    it("should be slick theme css loaded", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
         expect(
           Object.keys(this.lazyLoadService._loadedLibraries).find(
@@ -87,45 +86,44 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
               "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
           )
         ).toBeTruthy();
-        done();
       });
+      tick();
     }));
 
-    it("should emitted init when after init", async(done => {
+    it("should emitted init when after init", fakeAsync(() => {
       this.slickContainer.init.subscribe(res => {
         expect(res).toBeTruthy();
-        done();
       });
+      tick();
     }));
 
-    it("should emitted beforeChange when change slide", async(done => {
+    it("should emitted beforeChange when change slide", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
         this.slickContainer.goTo(1);
       });
+      tick();
       this.slickContainer.beforeChange.subscribe(res => {
-        console.log("beforeChange", res);
         expect(res.currentSlide).toBe(1);
-        done();
       });
+      tick();
     }));
 
-    xit("should emitted afterChange when change slide", async(done => {
+    it("should emitted afterChange when change slide", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
-        this.slickContainer.goTo(2);
+        this.slickContainer.goTo(1);
       });
+      tick();
       this.slickContainer.afterChange.subscribe(res => {
-        console.log(res);
-        expect(res.currentSlide).toBe(2);
-        done();
+        expect(res.currentSlide).toBe(1);
       });
+      tick();
     }));
 
-    it("should emitted breakpoint when after init", async(done => {
+    it("should emitted breakpoint when after init", fakeAsync(() => {
       this.slickContainer.afterChange.subscribe(res => {
-        console.log(res);
         expect(res).toBeTruthy();
-        done();
       });
+      tick();
     }));
   });
 });
