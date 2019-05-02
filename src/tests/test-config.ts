@@ -11,15 +11,18 @@ export default {
       provide: SLICK_LINKS,
       useValue: {
         jquery: "https://code.jquery.com/jquery-3.4.0.min.js",
-        slickJs: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
-        slickCss: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
-        slickThemeCss: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css",
-      },
+        slickJs:
+          "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
+        slickCss:
+          "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
+        slickThemeCss:
+          "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+      }
     },
     {
       provide: "slick-links",
       useFactory: linkOptionsFactory,
-      deps: [SLICK_LINKS],
-    },
-  ],
+      deps: [SLICK_LINKS]
+    }
+  ]
 };
