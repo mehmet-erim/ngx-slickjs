@@ -3,7 +3,7 @@
 [![Minzipped Size](https://badgen.net/bundlephobia/minzip/ngx-slickjs)](https://bundlephobia.com/result?p=ngx-slickjs@1.2.1)
 [![Build Status](https://travis-ci.org/mehmet-erim/ngx-slickjs.svg?branch=master)](https://travis-ci.org/mehmet-erim/ngx-slickjs)
 [![Maintainability](https://api.codeclimate.com/v1/badges/822ebfba446c893a385a/maintainability)](https://codeclimate.com/github/mehmet-erim/ngx-slickjs/maintainability)
-![Codecov](https://img.shields.io/codecov/c/gh/mehmet-erim/ngx-slickjs.svg)
+[![Codecov](https://img.shields.io/codecov/c/gh/mehmet-erim/ngx-slickjs.svg)](https://codecov.io/gh/mehmet-erim/ngx-slickjs)
 ![GitHub](https://img.shields.io/github/license/mehmet-erim/ngx-slickjs.svg)
 [![npm](https://img.shields.io/npm/dw/ngx-slickjs.svg)](https://www.npmjs.com/package/ngx-slickjs)
 [![Follow Twitter](https://img.shields.io/twitter/follow/mehmterim.svg?label=Follow)](https://twitter.com/mehmterim)

@@ -119,8 +119,46 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       tick();
     }));
 
-    it("should emitted breakpoint when after init", fakeAsync(() => {
+    it("should emitted breakpoint", fakeAsync(() => {
+      this.slickContainer.init.subscribe(() => {
+        this.slickContainer.jQueryElement.breakpoint("breakpoint", [true]);
+      });
+      tick();
+
+      this.slickContainer.breakpoint.subscribe(res => {
+        expect(res).toBeTruthy();
+      });
+      tick();
+    }));
+
+    it("should emitted afterChange when next method worked", fakeAsync(() => {
+      this.slickContainer.init.subscribe(() => {
+        this.slickContainer.next();
+      });
+      tick();
       this.slickContainer.afterChange.subscribe(res => {
+        expect(res).toBeTruthy();
+      });
+      tick();
+    }));
+
+    it("should emitted afterChange when prev method worked", fakeAsync(() => {
+      this.slickContainer.init.subscribe(() => {
+        this.slickContainer.prev();
+      });
+      tick();
+      this.slickContainer.afterChange.subscribe(res => {
+        expect(res).toBeTruthy();
+      });
+      tick();
+    }));
+
+    it("should emitted destroy when unslick method worked", fakeAsync(() => {
+      this.slickContainer.init.subscribe(() => {
+        this.slickContainer.unslick();
+      });
+      tick();
+      this.slickContainer.destroy.subscribe(res => {
         expect(res).toBeTruthy();
       });
       tick();
