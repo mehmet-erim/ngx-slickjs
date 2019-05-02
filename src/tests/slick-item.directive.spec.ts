@@ -18,17 +18,6 @@ export interface USlickItemDirective {
 describe("SlickItemDirective", function(this: USlickItemDirective) {
   describe("as a integration", () => {
     beforeEach(() => {
-      TestBed.overrideComponent(TestComponent, {
-        set: {
-          template: `
-         <div slickContainer>
-          <ul>
-            <li *ngFor="let name of names" slickItem>{{ name }}</li>
-          </ul>
-        </div>`
-        }
-      });
-
       TestBed.configureTestingModule(testConfig).compileComponents();
 
       this.fixture = TestBed.createComponent(TestComponent);
