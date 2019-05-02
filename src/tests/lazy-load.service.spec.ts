@@ -59,9 +59,9 @@ describe("LazyLoadService", function(this: ULazyLoadService) {
           switchMap(() => this.lazyLoadService.load(script, "script"))
         )
         .subscribe(() => {
-          expect(document.querySelectorAll(`[href='${script}']`).length).toBe(
-            1
-          );
+          expect(
+            this.lazyLoadService._loadedLibraries["basicModal.min.js"]
+          ).toBeTruthy();
         });
       tick();
     }));
@@ -88,9 +88,9 @@ describe("LazyLoadService", function(this: ULazyLoadService) {
         .load(styleUrl, "style")
         .pipe(switchMap(() => this.lazyLoadService.load(styleUrl, "style")))
         .subscribe(() => {
-          expect(document.querySelectorAll(`[href='${styleUrl}']`).length).toBe(
-            1
-          );
+          expect(
+            this.lazyLoadService._loadedLibraries["jasmine.css"]
+          ).toBeTruthy();
         });
       tick();
     }));
