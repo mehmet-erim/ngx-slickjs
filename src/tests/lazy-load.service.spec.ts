@@ -18,6 +18,7 @@ export interface ULazyLoadService {
 describe("LazyLoadService", function(this: ULazyLoadService) {
   describe("as a unit", () => {
     beforeEach(() => {
+      jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
       TestBed.configureTestingModule(testConfig).compileComponents();
 
       this.fixture = TestBed.createComponent(TestComponent);

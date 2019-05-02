@@ -20,6 +20,8 @@ export interface USlickContainerDirective {
 describe("SlickContainerDirective", function(this: USlickContainerDirective) {
   describe("as a unit", () => {
     beforeEach(() => {
+      jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+
       TestBed.configureTestingModule(testConfig).compileComponents();
 
       this.fixture = TestBed.createComponent(TestComponent);
@@ -121,7 +123,8 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
 
     it("should emitted breakpoint", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
-        this.slickContainer.jQueryElement.breakpoint("breakpoint", [true]);
+        window.dispatchEvent(new Event("resize"));
+        tick();
       });
       tick();
 
