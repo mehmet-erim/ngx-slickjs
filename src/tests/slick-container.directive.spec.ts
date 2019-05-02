@@ -45,8 +45,8 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
     it("should be jquery loaded", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
         expect(
-          Object.keys(this.lazyLoadService._loadedLibraries).find(
-            key => key === "jquery-3.4.0.min.js"
+          document.querySelector(
+            `[src='https://code.jquery.com/jquery-3.4.0.min.js']`
           )
         ).toBeTruthy();
       });
@@ -56,8 +56,8 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
     it("should be slickJs loaded", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
         expect(
-          Object.keys(this.lazyLoadService._loadedLibraries).find(
-            key => key === "slick.min.js"
+          document.querySelector(
+            `[src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js']`
           )
         ).toBeTruthy();
       });
@@ -67,8 +67,8 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
     it("should be slick css loaded", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
         expect(
-          Object.keys(this.lazyLoadService._loadedLibraries).find(
-            key => String(key) === "slick.css"
+          document.querySelector(
+            `[src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css']`
           )
         ).toBeTruthy();
       });
@@ -78,8 +78,8 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
     it("should be slick theme css loaded", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
         expect(
-          Object.keys(this.lazyLoadService._loadedLibraries).find(
-            key => String(key) === "slick-theme.css"
+          document.querySelector(
+            `[src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css']`
           )
         ).toBeTruthy();
       });
