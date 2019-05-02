@@ -68,7 +68,7 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       this.slickContainer.init.subscribe(() => {
         expect(
           document.querySelector(
-            `[src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css']`
+            `[href='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css']`
           )
         ).toBeTruthy();
       });
@@ -79,7 +79,7 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       this.slickContainer.init.subscribe(() => {
         expect(
           document.querySelector(
-            `[src='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css']`
+            `[href='https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css']`
           )
         ).toBeTruthy();
       });
@@ -95,7 +95,7 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
 
     it("should emitted beforeChange when change slide", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
-        this.slickContainer.goTo(1);
+        this.slickContainer.goTo(2);
       });
       tick();
       this.slickContainer.beforeChange.subscribe(res => {
@@ -106,11 +106,11 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
 
     it("should emitted afterChange when change slide", fakeAsync(() => {
       this.slickContainer.init.subscribe(() => {
-        this.slickContainer.goTo(1);
+        this.slickContainer.goTo(2);
       });
       tick();
       this.slickContainer.afterChange.subscribe(res => {
-        expect(res.currentSlide).toBe(1);
+        expect(res.currentSlide).toBe(2);
       });
       tick();
     }));

@@ -18,10 +18,7 @@ import {
 })
 export class TestComponent {
   config = {
-    // normal options...
     infinite: false,
-
-    // the magic
     responsive: [
       {
         breakpoint: 1024,
