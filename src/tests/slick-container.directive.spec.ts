@@ -5,11 +5,12 @@ import {
   tick
 } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
-import { debounceTime, filter } from "rxjs/operators";
+import { debounceTime, filter, delay } from "rxjs/operators";
 import { SlickContainerDirective } from "src/lib/directives";
 import { LazyLoadService } from "src/lib/services";
 import testConfig from "./test-config";
 import { TestComponent } from "./test.component";
+import { Slick } from "src/lib/models";
 
 export interface USlickContainerDirective {
   slickContainer: SlickContainerDirective;
@@ -179,9 +180,24 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       });
       tick();
       this.slickContainer.afterChange.pipe(debounceTime(900)).subscribe(res => {
-        console.log(res.currentSlide);
         expect(res.currentSlide).toBe(3);
       });
+      tick();
+    }));
+
+    it("should be pause method worked", fakeAsync(() => {
+      (this.component.config as Slick.Config).autoplay = true;
+      this.fixture.detectChanges();
+
+      this.slickContainer.init.pipe(delay(501)).subscribe(() => {
+        this.slickContainer.pause();
+      });
+      tick();
+      this.slickContainer.afterChange
+        .pipe(debounceTime(1501))
+        .subscribe(res => {
+          expect(res.currentSlide).toBe(3);
+        });
       tick();
     }));
   });
