@@ -109,7 +109,7 @@ import { NgxSlickJsModule } from "ngx-slickjs";
           "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
         slickCss:
           "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
-        slickThemeCss: null // if you are set null, this package won't load
+        slickThemeCss: null // if you are set null, this css won't load
       }
     })
   ]
