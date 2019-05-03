@@ -9,6 +9,7 @@ import { SlickContainerDirective } from "src/lib/directives";
 import { LazyLoadService } from "src/lib/services";
 import testConfig from "./test-config";
 import { TestComponent } from "./test.component";
+import { filter } from "rxjs/operators";
 
 export interface USlickContainerDirective {
   slickContainer: SlickContainerDirective;
@@ -101,9 +102,11 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
     }));
 
     it("should emitted afterChange when change slide", fakeAsync(() => {
-      this.slickContainer.afterChange.subscribe(res => {
-        expect(res.currentSlide).toBe(0);
-      });
+      this.slickContainer.afterChange
+        .pipe(filter(({ currentSlide }) => currentSlide))
+        .subscribe(res => {
+          expect(res.currentSlide).toBe(2);
+        });
       tick();
     }));
 
@@ -125,9 +128,11 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
         this.slickContainer.next();
       });
       tick();
-      this.slickContainer.afterChange.subscribe(res => {
-        expect(res).toBeTruthy();
-      });
+      this.slickContainer.afterChange
+        .pipe(filter(({ currentSlide }) => currentSlide > 2))
+        .subscribe(res => {
+          expect(res.currentSlide).toBe(3);
+        });
       tick();
     }));
 
@@ -136,9 +141,11 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
         this.slickContainer.prev();
       });
       tick();
-      this.slickContainer.afterChange.subscribe(res => {
-        expect(res).toBeTruthy();
-      });
+      this.slickContainer.afterChange
+        .pipe(filter(({ currentSlide }) => currentSlide < 2))
+        .subscribe(res => {
+          expect(res.currentSlide).toBe(1);
+        });
       tick();
     }));
 

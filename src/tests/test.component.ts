@@ -19,6 +19,7 @@ import {
 export class TestComponent {
   config = {
     infinite: false,
+    initialSlide: 2,
     responsive: [
       {
         breakpoint: 1024,
