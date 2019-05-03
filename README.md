@@ -1,13 +1,12 @@
 # ngx-slickjs
 
-[![Minzipped Size](https://badgen.net/bundlephobia/minzip/ngx-slickjs)](https://bundlephobia.com/result?p=ngx-slickjs@1.2.0)
-[![Maintainability](https://api.codeclimate.com/v1/badges/822ebfba446c893a385a/maintainability)](https://codeclimate.com/github/mehmet-erim/ngx-slickjs/maintainability)
+[![Minzipped Size](https://badgen.net/bundlephobia/minzip/ngx-slickjs)](https://bundlephobia.com/result?p=ngx-slickjs@1.2.1)
 [![Build Status](https://travis-ci.org/mehmet-erim/ngx-slickjs.svg?branch=master)](https://travis-ci.org/mehmet-erim/ngx-slickjs)
+[![Maintainability](https://api.codeclimate.com/v1/badges/822ebfba446c893a385a/maintainability)](https://codeclimate.com/github/mehmet-erim/ngx-slickjs/maintainability)
+[![Codecov](https://img.shields.io/codecov/c/gh/mehmet-erim/ngx-slickjs.svg)](https://codecov.io/gh/mehmet-erim/ngx-slickjs)
 ![GitHub](https://img.shields.io/github/license/mehmet-erim/ngx-slickjs.svg)
 [![npm](https://img.shields.io/npm/dw/ngx-slickjs.svg)](https://www.npmjs.com/package/ngx-slickjs)
 [![Follow Twitter](https://img.shields.io/twitter/follow/mehmterim.svg?label=Follow)](https://twitter.com/mehmterim)
-
-<!-- [Codecov](https://img.shields.io/codecov/c/gh/mehmet-erim/ngx-slickjs.svg) -->
 
 ngx-slickjs is slick-carousel package for Angular 6+. ngx-slickjs can lazy load slick.js packages. ngx-slickjs very small and very stable.
 
@@ -35,8 +34,8 @@ import { NgxSlickJsModule } from "ngx-slickjs";
 @NgModule({
   imports: [
     // ...
-    NgxSlickJsModule.forRoot(),
-  ],
+    NgxSlickJsModule.forRoot()
+  ]
 })
 export class AppModule {}
 ```
@@ -52,7 +51,11 @@ You can use slick methods. SlickContainerDirective exported with `slick` key.
 
 ```html
 <div slickContainer #slickController="slick">
-  <img slickItem *ngFor="let item of [0,1,2,3,4,5];" src="https://placeholder.pics/svg/400" />
+  <img
+    slickItem
+    *ngFor="let item of [0,1,2,3,4,5];"
+    src="https://placeholder.pics/svg/400"
+  />
 </div>
 
 <button (click)="slickController.next()">Next</button>
@@ -72,8 +75,8 @@ import { NgxSlickJsModule } from "ngx-slickjs";
 @NgModule({
   imports: [
     // ...
-    NgxSlickJsModule,
-  ],
+    NgxSlickJsModule
+  ]
 })
 export class AnotherModule {}
 ```
@@ -102,12 +105,14 @@ import { NgxSlickJsModule } from "ngx-slickjs";
     NgxSlickJsModule.forRoot({
       links: {
         jquery: "https://code.jquery.com/jquery-3.4.0.min.js",
-        slickJs: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
-        slickCss: "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
-        slickThemeCss: null, // if you are set null, this package won't load
-      },
-    }),
-  ],
+        slickJs:
+          "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
+        slickCss:
+          "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
+        slickThemeCss: null // if you are set null, this package won't load
+      }
+    })
+  ]
 })
 export class AppModule {}
 ```
@@ -141,7 +146,7 @@ slickConfig: Slick.Config = {
   slidesToScroll: 2,
   dots: true,
   autoplay: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 2000
 };
 ```
 
@@ -215,21 +220,21 @@ $(".slider").slick({
       breakpoint: 1024,
       settings: {
         slidesToShow: 3,
-        infinite: true,
-      },
+        infinite: true
+      }
     },
     {
       breakpoint: 600,
       settings: {
         slidesToShow: 2,
-        dots: true,
-      },
+        dots: true
+      }
     },
     {
       breakpoint: 300,
-      settings: "unslick", // destroys slick
-    },
-  ],
+      settings: "unslick" // destroys slick
+    }
+  ]
 });
 ```
 
@@ -244,15 +249,15 @@ constructor(private lazyLoadService: LazyLoadService) {}
 
   ngAfterViewInit(){
     this.lazyLoadService
-      .loadScript(/* your script url */)
+      .load(yourScriptUrl, 'script')
       .subscribe(() => {
         // loaded your script
       });
 
     this.lazyLoadService
-      .loadCss(/* your style url */)
+      .load(yourCssUrl, 'style')
       .subscribe(() => {
-        // loaded your style
+        // loaded your css
       });
   }
 ```

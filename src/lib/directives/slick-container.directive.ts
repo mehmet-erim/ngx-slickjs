@@ -1,4 +1,13 @@
-import { Directive, ElementRef, EventEmitter, Input, NgZone, OnDestroy, Output, Inject } from "@angular/core";
+import {
+  Directive,
+  ElementRef,
+  EventEmitter,
+  Input,
+  NgZone,
+  OnDestroy,
+  Output,
+  Inject
+} from "@angular/core";
 import compare from "just-compare";
 import { take, map, filter, switchMap } from "rxjs/operators";
 import { Options } from "../models/options";
@@ -10,7 +19,7 @@ declare const $: any;
 
 @Directive({
   selector: "[slickContainer]",
-  exportAs: "slick",
+  exportAs: "slick"
 })
 export class SlickContainerDirective implements OnDestroy {
   @Input("slickConfig")
@@ -41,23 +50,23 @@ export class SlickContainerDirective implements OnDestroy {
     private elRef: ElementRef,
     private zone: NgZone,
     private lazyLoadService: LazyLoadService,
-    @Inject("slick-links") private links: Options.Links,
+    @Inject("slick-links") private links: Options.Links
   ) {}
 
   ngAfterViewInit() {
     this.lazyLoadService
-      .loadScript(this.links.jquery)
+      .load(this.links.jquery, "script")
       .pipe(
         map(() => "jQuery is loaded"),
         filter(jquery => !!jquery),
         switchMap(() =>
           forkJoin(
-            this.lazyLoadService.loadScript(this.links.slickJs),
-            this.lazyLoadService.loadCss(this.links.slickCss),
-            this.lazyLoadService.loadCss(this.links.slickThemeCss),
-          ),
+            this.lazyLoadService.load(this.links.slickJs, "script"),
+            this.lazyLoadService.load(this.links.slickCss, "style"),
+            this.lazyLoadService.load(this.links.slickThemeCss, "style")
+          )
         ),
-        take(1),
+        take(1)
       )
       .subscribe(() => {
         this.initSlick();
@@ -88,11 +97,14 @@ export class SlickContainerDirective implements OnDestroy {
         });
       });
 
-      this.jQueryElement.on("beforeChange", (event, slick, currentSlide, nextSlide) => {
-        that.zone.run(() => {
-          that.beforeChange.emit({ event, slick, currentSlide, nextSlide });
-        });
-      });
+      this.jQueryElement.on(
+        "beforeChange",
+        (event, slick, currentSlide, nextSlide) => {
+          that.zone.run(() => {
+            that.beforeChange.emit({ event, slick, currentSlide, nextSlide });
+          });
+        }
+      );
 
       this.jQueryElement.on("breakpoint", (event, slick, breakpoint) => {
         that.zone.run(() => {
@@ -108,6 +120,14 @@ export class SlickContainerDirective implements OnDestroy {
     });
 
     this.syncSlides();
+
+    if (
+      this.config &&
+      this.config.initialSlide &&
+      this.config.initialSlide <= this.slides.length
+    ) {
+      this.goTo(this.config.initialSlide);
+    }
   }
 
   syncSlides() {
