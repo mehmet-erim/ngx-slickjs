@@ -9,7 +9,13 @@ import {
   template: `
     <div slickContainer [slickConfig]="config">
       <ul>
-        <li *ngFor="let name of names" slickItem>{{ name }}</li>
+        <li
+          *ngFor="let name of names; let i = index"
+          slickItem
+          [id]="'slick-item-' + i"
+        >
+          {{ name }}
+        </li>
       </ul>
     </div>
   `,
@@ -20,6 +26,7 @@ export class TestComponent {
   config = {
     infinite: false,
     initialSlide: 2,
+    autoplaySpeed: 500,
     responsive: [
       {
         breakpoint: 1024,

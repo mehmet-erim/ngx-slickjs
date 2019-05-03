@@ -5,11 +5,11 @@ import {
   tick
 } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
+import { debounceTime, filter } from "rxjs/operators";
 import { SlickContainerDirective } from "src/lib/directives";
 import { LazyLoadService } from "src/lib/services";
 import testConfig from "./test-config";
 import { TestComponent } from "./test.component";
-import { filter } from "rxjs/operators";
 
 export interface USlickContainerDirective {
   slickContainer: SlickContainerDirective;
@@ -142,9 +142,22 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       });
       tick();
       this.slickContainer.afterChange
-        .pipe(filter(({ currentSlide }) => currentSlide < 2))
+        .pipe(filter(({ currentSlide }) => currentSlide > 0))
         .subscribe(res => {
           expect(res.currentSlide).toBe(1);
+        });
+      tick();
+    }));
+
+    it("should emitted afterChange when goTo method worked", fakeAsync(() => {
+      this.slickContainer.init.subscribe(() => {
+        this.slickContainer.goTo(3);
+      });
+      tick();
+      this.slickContainer.afterChange
+        .pipe(filter(({ currentSlide }) => currentSlide === 3))
+        .subscribe(res => {
+          expect(res.currentSlide).toBe(3);
         });
       tick();
     }));
@@ -156,6 +169,18 @@ describe("SlickContainerDirective", function(this: USlickContainerDirective) {
       tick();
       this.slickContainer.destroy.subscribe(res => {
         expect(res).toBeTruthy();
+      });
+      tick();
+    }));
+
+    it("should be play method worked", fakeAsync(() => {
+      this.slickContainer.init.subscribe(() => {
+        this.slickContainer.play();
+      });
+      tick();
+      this.slickContainer.afterChange.pipe(debounceTime(900)).subscribe(res => {
+        console.log(res.currentSlide);
+        expect(res.currentSlide).toBe(3);
       });
       tick();
     }));
