@@ -44,7 +44,7 @@ export class SlickContainerDirective implements OnDestroy {
 
   jQueryElement: any;
 
-  private initialize: boolean = false;
+  initialize: boolean = false;
 
   constructor(
     private elRef: ElementRef,
