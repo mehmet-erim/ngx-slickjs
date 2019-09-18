@@ -4,7 +4,6 @@ notifications:
 node_js:
   - "11"
   - "10"
-  - "8"
 dist: trusty
 env:
   global:
