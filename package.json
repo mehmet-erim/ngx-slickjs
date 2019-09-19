@@ -18,7 +18,8 @@
     "build": "ng build ngx-slickjs",
     "lint": "ng lint",
     "test": "ng test",
-    "ci-test": "ng test --code-coverage --watch=false",
+    "symlink-ci": "symlink copy --packages ngx-slickjs --no-watch",
+    "ci-test": "yarn run symlink-ci && ng test ngx-slickjs --code-coverage --watch false",
     "release": "cp README.md dist/ngx-slickjs/README.md && cd dist/ngx-slickjs && npm publish && cd ../..",
     "verdaccio": "yarn build && cd dist/ngx-slickjs && npm publish --registry http://localhost:4873 && cd ../..",
     "unverdaccio": "cd dist/ngx-slickjs && npm unpublish --registry http://localhost:4873 --force && cd ../.."
@@ -60,6 +61,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^5.5.1",
     "protractor": "~5.4.0",
+    "symlink-manager": "^1.3.0",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",

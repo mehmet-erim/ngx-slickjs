@@ -1,26 +1,18 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ViewEncapsulation
-} from "@angular/core";
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: "app-test",
+  selector: 'app-test',
   template: `
-    <div slickContainer [slickConfig]="config">
+    <div id="slick-container" slickContainer [slickConfig]="config">
       <ul>
-        <li
-          *ngFor="let name of names; let i = index"
-          slickItem
-          [id]="'slick-item-' + i"
-        >
+        <li *ngFor="let name of names; let i = index" slickItem [id]="'slick-item-' + i">
           {{ name }}
         </li>
       </ul>
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class TestComponent {
   config = {
@@ -32,17 +24,17 @@ export class TestComponent {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          infinite: true
-        }
+          infinite: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
-          dots: true
-        }
-      }
-    ]
+          dots: true,
+        },
+      },
+    ],
   };
-  names = ["Ahmet", "Mehmet", "Ali"];
+  names = ['Ahmet', 'Mehmet', 'Ali'];
 }
