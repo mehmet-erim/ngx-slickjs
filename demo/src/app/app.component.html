@@ -1,0 +1,29 @@
+<div class="container">
+  <div slickContainer #slickController="slick" [slickConfig]="config">
+    <ng-container *ngIf="slickController.initialize">
+      <img
+        slickItem
+        *ngFor="let item of getArray(arrayLength); let index = index"
+        src="https://placeholder.pics/svg/400/DEDEDE/555555/{{ index + 1 }}"
+        class="p-10"
+      />
+    </ng-container>
+  </div>
+
+  <button (click)="arrayLength = arrayLength - 1">-</button>
+  {{ arrayLength }}
+  <button (click)="arrayLength = arrayLength + 1">+</button>
+
+  <button (click)="slickController.next()">Next</button>
+  <button (click)="slickController.prev()">Previous</button>
+  <button (click)="slickController.goTo(4)">Go to 4</button>
+  <button (click)="slickController.play()">Play</button>
+  <button (click)="slickController.pause()">Pause</button>
+  <button (click)="slickController.unslick()" [disabled]="!slickController.initialize">Destroy</button>
+  <button (click)="slickController.initSlick()" [disabled]="slickController.initialize">Init</button>
+</div>
+
+<pre>
+    config: {{ config | json }}
+  </pre
+>

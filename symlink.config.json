@@ -1,0 +1,12 @@
+{
+  "yarn": true,
+  "packages": [
+    {
+      "libraryFolderPath": "./src",
+      "linkFolderPath": "dist/ngx-slickjs",
+      "buildCommand": "ng build ngx-slickjs",
+      "buildCommandRunPath": ".",
+      "exclude": ["node_modules", "dist"]
+    }
+  ]
+}
