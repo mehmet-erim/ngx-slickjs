@@ -36,6 +36,7 @@ export namespace Slick {
     swipe?: boolean;
     swipeToSlide?: boolean;
     touchMove?: boolean;
+    mouseWheelMove?: boolean;
     touchThreshold?: number;
     useCSS?: boolean;
     useTransform?: boolean;
