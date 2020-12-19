@@ -1,14 +1,14 @@
 import { Inject, Injectable } from "@angular/core";
-import { Observable, ReplaySubject } from "rxjs";
+import { Observable, ReplaySubject, of } from "rxjs";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class LazyLoadService {
   _loadedLibraries: { [url: string]: ReplaySubject<void> } = {};
 
   load(url: string, type: "script" | "style"): Observable<void> {
-    if (!url) return;
+    if (!url) return of(null);
     const key = url.slice(url.lastIndexOf("/") + 1);
 
     if (this._loadedLibraries[key]) {
